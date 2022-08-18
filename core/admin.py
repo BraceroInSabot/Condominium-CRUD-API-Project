@@ -1,18 +1,23 @@
 from django.contrib import admin
 
 # Model Imports
-from core.models import BuildCNPJModel, BuildNameModel, BuildModel
+from core.models import NameModel, CNPJModel, BuildRegisterModel, BuildInfoModel
 
-@admin.register(BuildNameModel)
-class BuildNameAdmin(admin.ModelAdmin):
+@admin.register(NameModel)
+class NameAdmin(admin.ModelAdmin):
     list_display = ("name", )
 
 
-@admin.register(BuildCNPJModel)
-class BuildCNPJAdmin(admin.ModelAdmin):
-    list_display = ("name", "CNPJ")
+@admin.register(CNPJModel)
+class CNPJAdmin(admin.ModelAdmin):
+    list_display = ("CNPJ", )
 
 
-@admin.register(BuildModel)
-class BuildNameAdmin(admin.ModelAdmin):
-    list_display = ("name_CNPJ", "address")
+@admin.register(BuildRegisterModel)
+class BuildRegisterAdmin(admin.ModelAdmin):
+    list_display = ("name", "CNPJ", "owner")
+
+
+@admin.register(BuildInfoModel)
+class BuildRegisterAdmin(admin.ModelAdmin):
+    list_display = ("name", "CNPJ", "address", "email")
