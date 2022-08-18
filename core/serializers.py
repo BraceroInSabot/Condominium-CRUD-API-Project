@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.models import BuildNameModel, BuildModel
+from core.models import BuildNameModel, BuildCNPJModel, BuildModel
 
 
 class BuildNameSerializer(serializers.ModelSerializer):
@@ -8,6 +8,12 @@ class BuildNameSerializer(serializers.ModelSerializer):
         model = BuildNameModel
         fields = ("__all__")
 
+
+class BuildCNPJSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = BuildCNPJModel
+        fields = ("__all__")
 
 class BuildModelSerializer(serializers.ModelSerializer):
 
