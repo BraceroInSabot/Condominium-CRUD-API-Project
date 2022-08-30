@@ -14,7 +14,7 @@ class CNPJModel(models.Model):
     CNPJ = models.IntegerField("CNPJ")
 
     def __str__(self) -> str:
-        return self.CNPJ
+        return str(self.CNPJ)
 
     class Meta:
         verbose_name = " BUILD CNPJ"

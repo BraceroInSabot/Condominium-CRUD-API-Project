@@ -1,16 +1,21 @@
-from django.urls import path, include
-
-# Pages
-from core.views import IndexView
+from django.urls import path
 
 # APIS
-from core.views import BuildAPI, BuildNameAPI, BuildCNPJAPI
+from core.views import NameAPI, NameSearchAPI, CNPJAPI, CNPJSearchAPI, BuildRegisterAPI, BuildRegisterSearchAPI, BuildInfoAPI, BuildInfoSearchAPI
 
 urlpatterns = [
-    path("", IndexView.as_view(), name="index"),
+    
 
     # API
-    path("builds/", BuildAPI.as_view()),
-    path("builds/<str:name>/", BuildNameAPI.as_view()),
-    path("builds/<str:CNPJ>/", BuildCNPJAPI.as_view()),
+    path("builds/", NameAPI.as_view()),
+    path("cnpjs/", CNPJAPI.as_view()),
+
+    path("build/<int:pk>/", NameSearchAPI.as_view()),
+    path("cnpj/<int:pk>/", CNPJSearchAPI.as_view()),
+
+    path("info/", BuildInfoAPI.as_view()),
+    path("contact/", BuildRegisterAPI.as_view()),
+
+    path("info/<int:pk>/", BuildInfoSearchAPI.as_view()),
+    path("contact/<int:pk>/", BuildRegisterSearchAPI.as_view()),
 ]
