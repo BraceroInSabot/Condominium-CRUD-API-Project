@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Model Imports
-from core.models import NameModel, CNPJModel, BuildRegisterModel, BuildInfoModel
+from core.models import NameModel, CNPJModel, CondominiumInfoModel
 
 @admin.register(NameModel)
 class NameAdmin(admin.ModelAdmin):
@@ -13,11 +13,6 @@ class CNPJAdmin(admin.ModelAdmin):
     list_display = ("CNPJ", )
 
 
-@admin.register(BuildRegisterModel)
-class BuildRegisterAdmin(admin.ModelAdmin):
-    list_display = ("name", "CNPJ", "owner")
-
-
-@admin.register(BuildInfoModel)
-class BuildRegisterAdmin(admin.ModelAdmin):
-    list_display = ("name", "CNPJ", "address", "email")
+@admin.register(CondominiumInfoModel)
+class CondominiumRegisterAdmin(admin.ModelAdmin):
+    list_display = ("name", "CNPJ", "owner", "address", "email")

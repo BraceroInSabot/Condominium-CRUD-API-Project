@@ -3,13 +3,22 @@
 <html>
     <head>
         <title>Manual</title>
+        <link rel="stylesheet" href="{% static 'css/index/index.css' %}">
     </head>
     <body>
-        <h1>How to use it</h1>
-        <p>Availables urls:</p>
+        <h3>How to use the <a id="api">API's</a></h3>
+
+        <h4 class="title" >- How to use it -</h4>
+        <p>First of all, if you want to add some new data, click <a href="http://127.0.0.1:8000/admin/">here</a> to go right to Django Administration.</p> 
+        <p>When done, check this urls to view the api:</p>
         <ul>
-            <li></li>
+            <li><a href="http://127.0.0.1:8000/api/1.0/houses/">houses/</a> - List all the condominiuns </li>
         </ul>
-        <h3>{{ NameModel.objects.all }}</h3>
+        <p>Availables Builds:</p>
+        <ul>
+            {% for f in name %}
+            <li><a href="http://127.0.0.1:8000/api/1.0/info/{{ f.id }}/">{{ f.name }}</a></li>
+            {% endfor %}
+        </ul>
     </body>
 </html>

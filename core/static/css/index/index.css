@@ -1,0 +1,21 @@
+@media (min-width: 360px)
+{
+    body {
+        margin: 0px 50px 0px 50px;
+    }
+
+    h3 {
+        font-size: 40px;
+    }
+
+    #api {
+        font-size: 70px;
+        color: #dc322f;
+        text-decoration: underline #000;
+    }
+
+    .title {
+        color: #dc322f;
+        text-decoration: underline #000;
+    }
+}

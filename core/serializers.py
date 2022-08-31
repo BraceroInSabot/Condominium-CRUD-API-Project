@@ -1,13 +1,12 @@
-from dataclasses import field
 from rest_framework import serializers
-from core.models import NameModel, CNPJModel, BuildRegisterModel, BuildInfoModel
+from core.models import NameModel, CNPJModel, CondominiumInfoModel
 
 
 class NameSerializer(serializers.ModelSerializer):
-
+    CNPJ = serializers.StringRelatedField()
     class Meta:
         model = NameModel
-        fields = '__all__'
+        fields = ("id", "name", "CNPJ")
 
 
 class CNPJSerializer(serializers.ModelSerializer):
@@ -17,18 +16,10 @@ class CNPJSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class BuildRegisterSerializer(serializers.ModelSerializer):
-    name = serializers.StringRelatedField()
-    CNPJ = serializers.StringRelatedField()
-    class Meta:
-        model = BuildRegisterModel
-        fields = ("id", "owner", "name", "CNPJ")
-
-
-class BuildInfoSerializer(serializers.ModelSerializer):
+class CondominiumInfoSerializer(serializers.ModelSerializer):
     name = serializers.StringRelatedField()
     CNPJ = serializers.StringRelatedField()
 
     class Meta:
-        model = BuildInfoModel
-        fields = ("id", 'name', 'CNPJ', 'address', 'email')
+        model = CondominiumInfoModel
+        fields = ("id", 'name', 'CNPJ', "owner", 'address', 'email')

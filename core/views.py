@@ -2,15 +2,21 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 # Models import 
-from core.models import NameModel, CNPJModel, BuildRegisterModel, BuildInfoModel
+from core.models import NameModel, CNPJModel, CondominiumInfoModel
 
 # DRF / Serializers
 from rest_framework import generics, permissions
-from core.serializers import NameSerializer, CNPJSerializer, BuildRegisterSerializer, BuildInfoSerializer
+from core.serializers import NameSerializer, CNPJSerializer, CondominiumInfoSerializer
 
 # Land Page
 class IndexView(TemplateView):
     template_name: str = "index.html"
+    
+    def get_context_data(self, **kwargs):
+        ctx = super(IndexView, self).get_context_data(**kwargs)
+        ctx["name"] = NameModel.objects.all()
+        return ctx
+
 
 # Customizable APIS for admins
 class NameAPI(generics.ListAPIView):
@@ -46,35 +52,18 @@ class CNPJSearchAPI(generics.RetrieveUpdateDestroyAPIView):
             return queryset
 
 
-class BuildRegisterAPI(generics.ListAPIView):
-    serializer_class = BuildRegisterSerializer
-    queryset = BuildRegisterModel.objects.all()
-
-
-class BuildRegisterSearchAPI(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = BuildRegisterSerializer
-
-    def get_queryset(self):
-        if self.request.method == 'GET':
-            queryset = BuildRegisterModel.objects.all()
-            filter_search = self.request.GET.get('id', None)
-            if filter_search is not None:
-                queryset = queryset.filter(id=filter_search)
-            return queryset
-
-
-class BuildInfoAPI(generics.ListAPIView):
-    serializer_class = BuildInfoSerializer
-    queryset = BuildInfoModel.objects.all()
+class CondominiumInfoAPI(generics.ListAPIView):
+    serializer_class = CondominiumInfoSerializer
+    queryset = CondominiumInfoModel.objects.all()
     permission_classes = [permissions.IsAuthenticated]
 
 
-class BuildInfoSearchAPI(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = BuildInfoSerializer
+class CondominiumInfoSearchAPI(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = CondominiumInfoSerializer
 
     def get_queryset(self):
         if self.request.method == 'GET':
-            queryset = BuildInfoModel.objects.all()
+            queryset = CondominiumInfoModel.objects.all()
             filter_search = self.request.GET.get('id', None)
             if filter_search is not None:
                 queryset = queryset.filter(id=filter_search)
