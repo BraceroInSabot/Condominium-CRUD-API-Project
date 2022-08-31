@@ -1,6 +1,24 @@
-@media (min-width: 760px)
+@media (min-width: 360px)
 {
     body {
         margin: 0px 50px 0px 50px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-image: url("staticfiles/img/grid.jpg");
+
+    }
+
+    h3 {
+        font-size: 40px;
+    }
+
+    #api {
+        font-size: 70px;
+        color: #dc322f;
+        text-decoration: underline #000;
+    }
+
+    .title {
+        color: #dc322f;
+        text-decoration: underline #000;
     }
 }
