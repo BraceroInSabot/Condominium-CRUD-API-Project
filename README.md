@@ -68,13 +68,9 @@ Guilherme Bracero Gonzales - [@guilhermebracero](https://www.instagram.com/guilh
 ### PT-BR
 Licenças e direitos sobre o código:
 1. É um código free code. Pegar do meu código para colar no seu é permitido.
-2. Em hipostése alguma é permitida a venda de projetos com MUITA semelheança à esse.
-3. As pessoas que compartilharam dos seus dados para a criação da página, não permitem que estranhos os usem.
-4. Foi pedida a permissão para a publicação de todo o dado compartilhado no projeto.
+2. Em hipostése alguma é permitida a venda desse ou de semelhantes.
 
 ### EN-US
 Licence and rights about the code:
 1. It's a free code. Taking from my code to paste into yours is allowed.
-2. Under no circumstances is it allowed to sell projects with MUCH similarity to this one.
-3. The people who shared their data for the creation of the page, do not allow strangers to use it. Ask for permission first.
-4. Permission was requested to publish all shared data in the project.
+2. Under no circumstances is it allowed to sell this, or any other projects with MUCH similarity to this one.
